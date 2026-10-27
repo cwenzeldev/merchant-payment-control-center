@@ -14,7 +14,7 @@ python3 -m payments
 
 Open **http://127.0.0.1:8770**. The local SQLite database is created at `data/payments.sqlite3` and excluded from Git. Choose another port/database with `python3 -m payments --port 9000 --db data/another.sqlite3`. Stop with Ctrl+C. Optional installation: `python3 -m pip install .` provides `merchant-control`; installation may download setuptools. Direct execution requires no installation.
 
-## Five-minute employer demo
+## Five-minute demo
 
 1. Choose **Run guided scenario** on Payments: $125 authorized, $100 captured, $25 refunded, then the exact refund command repeated. The duplicate creates no additional refund.
 2. Inspect the payment timeline and remaining refundable balance. Try to refund more than $75: the engine rejects it without a partial database update.
