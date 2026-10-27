@@ -1,8 +1,23 @@
 # Merchant Payment Control Center
 
-An interactive, local payment-operations application: authorize a synthetic purchase, capture part of it, issue partial refunds, inspect a balanced journal, replay notifications, and reconcile processor-statement fixtures. An optional **Stripe test-only adapter** creates hosted Checkout Sessions with manual capture, retrieves payment status, captures authorizations, cancels them, and requests refunds.
+An interactive, local payment-operations application: authorize a synthetic purchase, capture part of it, issue partial refunds, inspect a balanced journal, replay notifications, and reconcile processor-statement fixtures. A **Stripe test-mode adapter is implemented but has not been verified end to end against a Stripe account**. Its code covers hosted Checkout Sessions with manual capture, payment status retrieval, capture, cancellation, refund requests, and signed webhook receipt handling.
 
 The simulator works without an account or network. Stripe integration requires your own test-mode credentials. **No live processing, real card entry, terminal certification, or production-readiness claim is made.** Simulator data and Stripe data are separate views; synthetic fees and statements are never presented as Stripe settlement records.
+
+## Integration status — read this first
+
+**This is a working local simulator with an unverified Stripe test-mode adapter, not a fully integrated Stripe payment-operations system.**
+
+| Component | Current status |
+| --- | --- |
+| Local payment lifecycle, journal, notification replay and reconciliation | Implemented and tested with synthetic data |
+| Stripe Checkout, capture, cancellation and refund adapter | Code implemented; automated tests use mocked provider responses |
+| Actual Stripe sandbox checkout, capture, refunds and webhook delivery | Not yet verified with account credentials; setup instructions are provided below |
+| Stripe transactions feeding the journal | Not implemented; the journal currently contains simulator transactions only |
+| Stripe fees, balance transactions and payouts feeding reconciliation | Not implemented; reconciliation currently compares synthetic CSV statements |
+| Physical payment terminal / EMV processing | Not implemented; the terminal view and TLV examples are simulations |
+
+Passing automated tests does **not** establish that the Stripe account integration works. Until account-based testing and provider-to-ledger/reconciliation work are completed, demonstrate the simulator and describe Stripe support as an unverified adapter. No successful Stripe transaction or end-to-end provider validation is claimed.
 
 ## Launch
 
