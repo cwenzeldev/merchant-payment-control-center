@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "merchant-payment-control-center"
+version = "1.0.0"
+description = "Local payment lifecycle, ledger and reconciliation lab with optional Stripe test checkout"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[project.scripts]
+merchant-control = "payments.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["payments*"]
+
+[tool.setuptools.package-data]
+payments = ["static/*.html"]

@@ -1,0 +1,55 @@
+{
+  "scope": "Synthetic local simulation; no Stripe calls",
+  "payment": {
+    "id": "pay_c9306ef02bee",
+    "amount": 12500,
+    "state": "partially_refunded",
+    "captured": 10000,
+    "refunded": 2500,
+    "scenario": "approve",
+    "channel": "online",
+    "created": 1793096049.1756248
+  },
+  "duplicate_refund": true,
+  "event_first_delivery": {
+    "duplicate": false,
+    "applied": true
+  },
+  "event_redelivery": {
+    "duplicate": true,
+    "applied": false
+  },
+  "ledger": {
+    "debits": 12820,
+    "credits": 12820,
+    "balanced": true
+  },
+  "matching_statement": {
+    "passed": true,
+    "matched": 2,
+    "expected_rows": 2,
+    "statement_rows": 2,
+    "issues": [],
+    "expected_net": 7180,
+    "statement_net": 7180,
+    "scope": "Synthetic statement comparison; no funds moved"
+  },
+  "mismatched_statement": {
+    "passed": false,
+    "matched": 1,
+    "expected_rows": 2,
+    "statement_rows": 2,
+    "issues": [
+      {
+        "reference": "cap_ca785ba10c37",
+        "reason": "Net amount mismatch",
+        "expected": 9680,
+        "actual": 9580,
+        "difference": -100
+      }
+    ],
+    "expected_net": 7180,
+    "statement_net": 7080,
+    "scope": "Synthetic statement comparison; no funds moved"
+  }
+}
